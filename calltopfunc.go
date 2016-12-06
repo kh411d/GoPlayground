@@ -25,6 +25,7 @@ type Bar struct {
 }
 
 func (s *Bar) Test() {
+
 	// Debug Bar composition
 	t := reflect.TypeOf(s)
 	v := reflect.ValueOf(s)

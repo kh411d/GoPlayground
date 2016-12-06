@@ -1,4 +1,4 @@
-package main 
+package main
 import (
 	"fmt"
 )
@@ -10,7 +10,7 @@ func main() {
      go func() {
           fmt.Println("goroutine message")
            for i:=1;i<10000;i = i+1 {}
-    
+
           // Tell the main function everything is done.
           // This channel is visible inside this goroutine because
           // it is executed in the same address space.
@@ -18,7 +18,7 @@ func main() {
      }()
 
      fmt.Println("main function message")
-     fmt.Println(x)
+    // fmt.Println(x)
      x = <-done // Wait for the goroutine to finish
      fmt.Println(x)
 }

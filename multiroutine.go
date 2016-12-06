@@ -22,13 +22,13 @@ func main() {
      c2 := getMessagesChannel("second", 150)
      c3 := getMessagesChannel("third", 10)
 
-     /*for i := 1; i <= 3; i++ {
+     for i := 1; i <= 9; i++ {
           println(<-c1)
           println(<-c2)
           println(<-c3)
-     }*/
+     }
 
-     for i := 1; i <= 9; i++ {
+     /*for i := 1; i <= 9; i++ {
      select {
      case msg := <-c1:
           println(msg)
@@ -37,5 +37,5 @@ func main() {
      case msg := <-c3:
           println(msg)
      }
-}
+     }*/
 }
