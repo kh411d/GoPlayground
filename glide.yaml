@@ -1,0 +1,20 @@
+package: github.com/kh411d/MyGoPlayground
+import:
+- package: github.com/labstack/echo
+  version: 2.2.0
+  subpackages:
+  - middleware
+- package: github.com/smartystreets/goconvey
+  version: 1.6.2
+  subpackages:
+  - convey
+- package: gopkg.in/redis.v5
+  version: ^5.2.0
+- package: gopkg.in/mgo.v2
+- package: github.com/jmoiron/sqlx
+- package: github.com/bradfitz/gomemcache/memcache
+- package: github.com/olivere/elastic
+- package: github.com/spf13/viper
+- package: github.com/urfave/cli
+- package: github.com/jasonlvhit/gocron
+- package: github.com/facebookgo/grace
