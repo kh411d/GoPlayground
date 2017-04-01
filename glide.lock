@@ -1,32 +1,76 @@
-hash: 296b9a7d88d6f5d52c65d134d0190f48baef8fad3e34ce3486c1113e9e6b6232
-updated: 2017-02-23T14:55:15.558236862+07:00
+hash: b7bf6f5d64d67a5deaceb2fb8c7c9635b4c8d67f0224d62ddb5bb22847fb2a9d
+updated: 2017-02-23T19:37:43.615897131+07:00
 imports:
-- name: github.com/bradfitz/gomemcache
-  version: 2fafb84a66c4911e11a8f50955b01e74fe3ab9c5
-  subpackages:
-  - memcache
+- name: github.com/BurntSushi/toml
+  version: bbd5bb678321a0d6e58f1099321dfa73391c1b6f
+- name: github.com/facebookgo/clock
+  version: 600d898af40aa09a7a93ecb9265d87b0504b6f03
 - name: github.com/facebookgo/grace
   version: 5729e484473f52048578af1b80d0008c7024089b
-- name: github.com/jasonlvhit/gocron
-  version: 42a5804d37aa0b9239b265e894a16b8edbf52d54
-- name: github.com/jmoiron/sqlx
-  version: cac998c4f0959c19c638c523e374fa8e4e0bcfe3
+  subpackages:
+  - gracehttp
+  - gracenet
+- name: github.com/facebookgo/httpdown
+  version: a3b1354551a26449fbe05f5d855937f6e7acbd71
+- name: github.com/facebookgo/stats
+  version: 1b76add642e42c6ffba7211ad7b3939ce654526e
+- name: github.com/hashicorp/hcl
+  version: 1c284ec98f4b398443cbabb0d9197f7f4cc0077c
+  subpackages:
+  - hcl/ast
+  - hcl/parser
+  - hcl/scanner
+  - hcl/strconv
+  - hcl/token
+  - json/parser
+  - json/scanner
+  - json/token
+- name: github.com/kr/pretty
+  version: e6ac2fc51e89a3249e82157fa0bb7a18ef9dd5bb
+- name: github.com/kr/text
+  version: bb797dc4fb8320488f47bf11de07a733d7233e1f
 - name: github.com/labstack/echo
   version: e08070379af60f5b9c0fb5bb2d1527ba9624fe43
   subpackages:
-  - middleware
-- name: github.com/olivere/elastic
-  version: 2594d14da9d16fb44b8153d2db83dbea04b504e8
-- name: github.com/smartystreets/goconvey
-  version: d4c757aa9afd1e2fc1832aaab209b5794eb336e1
+  - context
+  - engine
+  - engine/standard
+  - log
+- name: github.com/labstack/gommon
+  version: 2d272df536d051e737aea353b86c979d6e88bce0
   subpackages:
-  - convey
+  - color
+  - log
+- name: github.com/magiconair/properties
+  version: c81f9d71af8f8cba1466501d30326b99a4e56c19
+- name: github.com/mattn/go-colorable
+  version: 9cbef7c35391cca05f15f8181dc0b18bc9736dbb
+- name: github.com/mattn/go-isatty
+  version: 56b76bdf51f7708750eac80fa38b952bb9f32639
+- name: github.com/mitchellh/mapstructure
+  version: d2dd0262208475919e1a362f675cfc0e7c10e905
+- name: github.com/spf13/cast
+  version: ee7b3e0353166ab1f3a605294ac8cd2b77953778
+- name: github.com/spf13/jwalterweatherman
+  version: d00654080cddbd2b082acaa74007cb94a2b40866
+- name: github.com/spf13/pflag
+  version: 7f60f83a2c81bc3c3c0d5297f61ddfa68da9d3b7
 - name: github.com/spf13/viper
   version: c975dc1b4eacf4ec7fdbf0873638de5d090ba323
 - name: github.com/urfave/cli
   version: d86a009f5e13f83df65d0d6cee9a2e3f1445f0da
-- name: gopkg.in/mgo.v2
-  version: d90005c5262a3463800497ea5a89aed5fe22c886
-- name: gopkg.in/redis.v5
-  version: 135cb12c7689ffe92338baf677a1e0d2086144dc
+- name: github.com/valyala/fasttemplate
+  version: 3b874956e03f1636d171bda64b130f9135f42cff
+- name: golang.org/x/net
+  version: 4599ae7937fce9b670ce32b8ad32bbb7ae726b3e
+  subpackages:
+  - context
+- name: golang.org/x/sys
+  version: c200b10b5d5e122be351b67af224adc6128af5bf
+  subpackages:
+  - unix
+- name: gopkg.in/fsnotify.v1
+  version: 8611c35ab31c1c28aa903d33cf8b6e44a399b09e
+- name: gopkg.in/yaml.v2
+  version: f7716cbe52baa25d2e9b0d0da546fcf909fc16b4
 testImports: []
