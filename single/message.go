@@ -3,12 +3,11 @@ package main
 import (
   "fmt"
   "strconv"
-  "time"
 )
 
 func main() {
 
-  message := make(chan string, 4) // no buffer
+  message := make(chan string) // no buffer
   count := 3
 
   go func() {
@@ -18,7 +17,7 @@ func main() {
     }
   }()
 
-  time.Sleep(time.Second * 5)
+  // time.Sleep(time.Second * 5)
 
   for i := 1; i <= count; i++ {
     fmt.Println(<-message)
