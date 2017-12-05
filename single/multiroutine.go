@@ -5,9 +5,13 @@ import (
      "time"
 )
 
+var iniglobal *string
+
 func getMessagesChannel(msg string, delay time.Duration) <-chan string {
      c := make(chan string)
      go func() {
+          str := "bangke"
+          iniglobal = &str
           for i := 1; i <= 3; i++ {
                c <- fmt.Sprintf("%s %d", msg, i)
                // Wait before sending next message
@@ -38,4 +42,11 @@ func main() {
                println(msg)
           }
      }
+
+     go func() {
+          fmt.Println(*iniglobal)
+     }()
+
+     var input string
+     fmt.Scanln(&input)
 }
