@@ -51,6 +51,10 @@ func main() {
                         return echo.NewHTTPError(http.StatusBadRequest, "invalid JSON input(parse error).")
                     }
 
+                    var xhttp http.Request
+
+                    xhttp := c.Request()
+
                     return c.String(http.StatusOK, opt.Payload)
                 })
 

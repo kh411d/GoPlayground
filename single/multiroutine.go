@@ -13,6 +13,7 @@ func getMessagesChannel(msg string, delay time.Duration) <-chan string {
           str := "bangke"
           iniglobal = &str
           for i := 1; i <= 3; i++ {
+               fmt.Println("write ", msg, i)
                c <- fmt.Sprintf("%s %d", msg, i)
                // Wait before sending next message
                time.Sleep(time.Millisecond * delay)
