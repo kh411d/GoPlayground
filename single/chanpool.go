@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"net/http"
+	_ "net/http/pprof"
 	"runtime"
 	"strconv"
 	"time"
@@ -21,19 +22,6 @@ var TotalRequest int = 5
 var TotalWorker int = 3
 
 func main() {
-
-	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-		if r.Method != "POST" {
-			w.Header().Set("Allow", "POST")
-			w.WriteHeader(http.StatusMethodNotAllowed)
-			return
-		}
-
-		Queue <- request{
-			name:  r.FormValue("name"),
-			delay: time.Second * 5,
-		}
-	})
 
 	go func() {
 		for i := 1; i <= TotalRequest; i++ {
@@ -77,7 +65,32 @@ func main() {
 		fmt.Println("Worker all NumGoroutine ", runtime.NumGoroutine())
 	}()
 
-	if err := http.ListenAndServe(":3003", nil); err != nil {
+	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+		if r.Method != "POST" {
+			w.Header().Set("Allow", "POST")
+			w.WriteHeader(http.StatusMethodNotAllowed)
+			return
+		}
+
+		Queue <- request{
+			name:  r.FormValue("name"),
+			delay: time.Second * 5,
+		}
+	})
+
+	/*http.HandleFunc("/debug/pprof/", func(w http.ResponseWriter, r *http.Request) {
+		pprof.Index(w, r)
+	})*/
+
+	/*http.HandleFunc("/debug/pprof/profile", func(w http.ResponseWriter, r *http.Request) {
+		pprof.Profile(w, r)
+	})
+	*/
+	/*http.HandleFunc("/debug/pprof/:name", func(w http.ResponseWriter, r *http.Request) {
+		pprof.Handler("heap").ServeHTTP(w, r)
+	})
+	*/
+	if err := http.ListenAndServe("localhost:3003", http.DefaultServeMux); err != nil {
 		fmt.Println(err.Error())
 	}
 }
