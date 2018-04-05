@@ -11,6 +11,7 @@ package google
 import (
 	"context"
 	"encoding/json"
+	"fmt"
 	"net/http"
 
 	"github.com/kh411d/MyGoPlayground/context/userip"
@@ -84,7 +85,8 @@ func httpDo(ctx context.Context, req *http.Request, f func(*http.Response, error
 	c := make(chan error, 1)
 	go func() { c <- f(client.Do(req)) }()
 	select {
-	case <-ctx.Done():
+	case x := <-ctx.Done():
+		fmt.Printf("woi done %#v", x)
 		tr.CancelRequest(req)
 		<-c // Wait for f to return.
 		return ctx.Err()

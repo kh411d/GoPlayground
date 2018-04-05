@@ -3,46 +3,48 @@ package main
 import "fmt"
 
 func gen(nums ...int) <-chan int {
-    out := make(chan int)
-    go func() {
-        for _, n := range nums {
-            out <- n
-        }
-        close(out)
-    }()
-    return out
+  out := make(chan int)
+  go func() {
+    for _, n := range nums {
+      out <- n
+    }
+    //need to close because it will not be red
+    close(out)
+  }()
+  return out
 }
 
 func sq(in <-chan int) <-chan int {
-    out := make(chan int)
-    go func() {
-        for n := range in {
-            out <- n * n
-        }
-        close(out)
-    }()
-    return out
+  out := make(chan int)
+  go func() {
+    for n := range in {
+      out <- n * n
+    }
+    //need to close because it will not be red
+    close(out)
+  }()
+  return out
 }
 
 func main() {
 
-    /** 1st Method *
-      // Set up the pipeline.
-      c := gen(2, 3)
-      out := sq(c)
-      // Consume the output.
-      fmt.Println(<-out) // 4
-      fmt.Println(<-out) // 9
-    /**/
+  /** 1st Method *
+    // Set up the pipeline.
+    c := gen(2, 3)
+    out := sq(c)
+    // Consume the output.
+    fmt.Println(<-out) // 4
+    fmt.Println(<-out) // 9
+  /**/
 
-    /** 2nd Method **
-      // Set up the pipeline and consume the output.
-      for n := range sq(gen(2, 3)) {
-          fmt.Println(n) // 16 then 81
-      }
-      /**/
+  /** 2nd Method **/
+  // Set up the pipeline and consume the output.
+  for n := range sq(gen(2, 3)) {
+    fmt.Println(n) // 16 then 81
+  }
+  /**/
 
-    /** 3rd Method **/
+  /** 3rd Method **
     // Set up the pipeline and consume the output.
     c := gen(2, 3)
     out := sq(c)
