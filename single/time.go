@@ -7,6 +7,7 @@ import (
 
 func main() {
 	now := time.Now()
+	//test doang
 	// then := now.Add(-179 * time.Second)
 	// fmt.Println(now)
 	// fmt.Println(then)
