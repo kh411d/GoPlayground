@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 )
+var claimes = map[string]interface {}{"citizen_id":"784199092345671", "city_id":0, "city_name":"", "country_code":"ae", "country_id":224, "dob":"1990-09-28", "dob_format":"gregorian", "email":"teuku.z.amin@gmail.com", "expired":"17/06/2022 22:33:12", "fg_payment":0, "gender":"male", "identity_id":"784199092345671", "identity_type_id":1, "language_code":"", "latitude":"24.7241504", "longitude":"46.2620616", "mobile_number":"+628161964775", "name":"Teuku Zulfikar Amin", "network_id":"1", "thirdparty_patient_id":"168873495", "thirdparty_user_id":"168873495", "user_id":0, "whitelabel_id":21}, TokenType:"bearer_token", StandardClaims:jwt.StandardClaims{Audience:"505091", ExpiresAt:1655490793, Id:"", IssuedAt:1627442714, Issuer:"okadoc.com", NotBefore:0, Subject:"teuku.z.amin@gmail.com"}
 
 type Decorator interface {
 	Decorate() string

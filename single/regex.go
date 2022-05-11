@@ -8,5 +8,7 @@ import (
 func main() {
 	//r := regexp.MustCompile(`(?i)Balance.*`)
 
-	fmt.Println(regexp.MustCompile(`(?i)Balance.*`).MatchString("balance2342_s4f3433"))
+	r := regexp.MustCompile(`(?i)(.*)-[0-9\.]+`)
+
+	fmt.Printf("%q\n", r.FindSubmatch([]byte("sadfasdf-sdfsd-3.3.24")))
 }
