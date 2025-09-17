@@ -33,7 +33,7 @@ func main() {
 	fmt.Printf("%v\n", zeroTime.IsZero())
 
 	//xtime := "2021-10-03T01:15:00+07:00"
-	xtime := "2021-09-30T12:40:00+07:00"
+	xtime := "2023-11-23T17:00:00Z"
 	xtimeInFuture, _ := time.Parse(time.RFC3339, xtime)
 	fmt.Println(xtimeInFuture.UTC())
 	fmt.Println(xtimeInFuture.In(loc))
@@ -46,5 +46,14 @@ func main() {
 
 	c, _ := time.Parse("2006-01-02 15:04:05", "2021-02-25 12:32:01")
 	fmt.Println(c.Format(time.RFC3339))
+
+	t, _ = time.Parse(time.RFC3339, "2023-02-02T14:30:00+07:00")
+	fmt.Printf("\n\nTime Local PC %#v\n", now.Format(time.RFC3339))
+
+	fmt.Println(now.UTC().After(t.Add(-1440 * time.Minute)))
+
+	cc, err := time.Parse("2006-01-02", "2021-02-25 12:00:01")
+	fmt.Println(err)
+	fmt.Println(cc.Format(time.RFC3339))
 
 }
